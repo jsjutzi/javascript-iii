@@ -36,12 +36,23 @@ var employees = [{
 //  2. If the employee's first name is Lorie, change her department to 'HR'.
 //  3. Return the updated employee array.
 
-// Code here
+const employeeUpdater = () => {
+  employees = employees.filter(employee => employee.firstName !== "Theo");
+  employees.forEach((employee) => employee.firstName === 'Lorie' ? employee.department = "HR": employee.department);
+  return employees
+};
 
-
-
-
-
+// const employeeUpdater = (obj) =>{
+//   for (var prop in obj){
+//     if (obj[firstName == "Theo"]){
+//       delete obj[prop];
+//     }
+//     if (obj[firstName] == "Lorie"){
+//       obj.department = "HR";
+//     }
+//   }
+//   return obj;
+// }
 
 
 // === PROBLEM 2 ==========
@@ -54,7 +65,16 @@ var employees = [{
 
 var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
-// Code here
+const removeDuplicates = () => {
+  //sort will not properly sort in order, but will group duplicates together.
+  workplaceAccidents.sort();
+  for (var i = 1; i < workplaceAccidents.length; i++){
+    if (workplaceAccidents[i] == workplaceAccidents[i -1]){
+      workplaceAccidents.splice(i, 1);
+    }
+  }
+return workplaceAccidents;
+}
 
 
 
@@ -84,8 +104,8 @@ var cat = {
 
 // Code here
 
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 
 
@@ -122,7 +142,11 @@ var myCar = {
   ]
 }
 
-// Code here
+  const recordCleaner = ()=>{
+    myCar.accidents.forEach(accident=>accident.atFaultForAccident = false);
+    return myCar;
+  }
+
 
 
 
@@ -144,5 +168,17 @@ var myCar = {
 var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 
 
-
+  const looper = () => {
+    for (var i = 0; i < numsArr.length; i++){
+      for (var j = 0; j < numsArr[i].length; j++){
+        if (numsArr[i][j]% 2 !== 0){
+          numsArr[i].splice(j, 1, 'odd');
+        }
+        else{
+          numsArr[i].splice(j, 1, 'even');
+        }
+      }
+    }
+    return numsArr;
+  }
 
